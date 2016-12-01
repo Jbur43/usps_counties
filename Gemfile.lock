@@ -1,0 +1,30 @@
+PATH
+  remote: .
+  specs:
+    usps_return_counties (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mini_portile2 (2.1.0)
+    minitest (5.9.1)
+    netrc (0.7.9)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
+    rake (10.5.0)
+    rest_client (1.8.3)
+      netrc (~> 0.7.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.11)
+  minitest (~> 5.0)
+  nokogiri
+  rake (~> 10.0)
+  rest_client
+  usps_return_counties!
+
+BUNDLED WITH
+   1.11.2
