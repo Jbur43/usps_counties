@@ -1,14 +1,14 @@
-# require "usps_return_counties/version"
+# require "usps_counties/version"
 require 'nokogiri'
 require 'rest_client'
-require './usps_return_counties/counties_and_population'
-require './usps_return_counties/constants'
-require './usps_return_counties/zip_code_location'
+require './usps_counties/counties_and_population'
+require './usps_counties/constants'
+require './usps_counties/zip_code_location'
 
 USPS_URL = 'http://production.shippingapis.com/ShippingAPITest.dll?API=CityStateLookup'.freeze
 ROOT     = 'CityStateLookupResponse'.freeze
 
-module UspsReturnCounties
+module Usps
   def self.get_city_state_abbrv(usps_id, zip)
     api_url = url(zip, usps_id)
     xml_response = RestClient.get(api_url)
@@ -50,8 +50,8 @@ module UspsReturnCounties
   end
 end
 
-module UspsReturnCounties
-  class UspsReturnCountiesInit
+module Usps
+  class UspsInit
     attr_reader :usps_id, :zip
 
     def initialize(usps_id, zip)
@@ -59,21 +59,16 @@ module UspsReturnCounties
       @zip = zip
     end
 
-    def get_city_state_abbrv
-      UspsReturnCounties.get_city_state_abbrv(usps_id, zip)
-    end
 
-    usps_county = UspsReturnCounties::UspsReturnCountiesInit.new('167THEBO3702', '08691').some_next_method
+    usps_county = Usps::UspsInit.new('167THEBO3702', '08691')
 
-    city = UspsReturnCounties.city_from(usps_county.usps_id, usps_county.zip)
-    state_abbrv = UspsReturnCounties.state_abbrv_from(usps_county.usps_id, usps_county.zip)
-    state_name = UspsReturnCounties.state_name_from(state_abbrv)
-    counties_populations = UspsReturnCounties.counties_and_population_from(state_name)
+    city = Usps.city_from(usps_county.usps_id, usps_county.zip)
+    state_abbrv = Usps.state_abbrv_from(usps_county.usps_id, usps_county.zip)
+    state_name = Usps.state_name_from(state_abbrv)
+    counties_populations = Usps.counties_and_population_from(state_name)
 
-    zip_code_location = UspsReturnCounties::ZipCodeLocation.new(city, state_abbrv, state_name, counties_populations)
-    puts "zip_code_location.city: #{zip_code_location.city}"
-    puts "zip_code_location.state_name: #{zip_code_location.state_name}"
-    puts "zip_code_location.state_abbrv: #{zip_code_location.state_abbrv}"
-    puts "zip_code_location.county: #{zip_code_location.counties_populations.inspect}"
+
+    zip_code_location = Usps::ZipCodeLocation.new(city, state_abbrv, state_name, counties_populations)
+    puts "zip_code_location: #{zip_code_location.inspect}"
   end
 end
