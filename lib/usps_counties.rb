@@ -1,4 +1,4 @@
-# require "usps_counties/version"
+require "./usps_counties/version"
 require 'nokogiri'
 require 'rest_client'
 require './usps_counties/counties_and_population'
@@ -51,7 +51,7 @@ module Usps
 end
 
 module Usps
-  class UspsInit
+  class County
     attr_reader :usps_id, :zip
 
     def initialize(usps_id, zip)
@@ -59,16 +59,15 @@ module Usps
       @zip = zip
     end
 
+    def get_county_info
+      city = Usps.city_from(usps_id, zip)
+      state_abbrv = Usps.state_abbrv_from(usps_id, zip)
+      state_name = Usps.state_name_from(state_abbrv)
+      counties_populations = Usps.counties_and_population_from(state_name)
 
-    usps_county = Usps::UspsInit.new('167THEBO3702', '08691')
-
-    city = Usps.city_from(usps_county.usps_id, usps_county.zip)
-    state_abbrv = Usps.state_abbrv_from(usps_county.usps_id, usps_county.zip)
-    state_name = Usps.state_name_from(state_abbrv)
-    counties_populations = Usps.counties_and_population_from(state_name)
-
-
-    zip_code_location = Usps::ZipCodeLocation.new(city, state_abbrv, state_name, counties_populations)
-    puts "zip_code_location: #{zip_code_location.inspect}"
+      zip_code_location = Usps::ZipCodeLocation.new(city, state_abbrv, state_name, counties_populations)
+      # puts "zip_code_location: #{zip_code_location.inspect}"
+      zip_code_location
+    end
   end
 end
