@@ -1,4 +1,4 @@
-module Usps
+module UspsCounties
   class ZipCodeLocation
     attr_reader :city, :state_abbrv, :state_name, :counties_populations
 
