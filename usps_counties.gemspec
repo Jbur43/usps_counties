@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'usps_return_counties/version'
+require 'usps_counties/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "usps_return_counties"
-  spec.version       = UspsReturnCounties::VERSION
+  spec.name          = "usps_counties"
+  spec.version       = UspsCounties::VERSION
   spec.authors       = ["Jbur43"]
   spec.email         = ["jtburum@gmail.com"]
 

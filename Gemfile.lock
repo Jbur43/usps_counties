@@ -1,19 +1,42 @@
 PATH
   remote: .
   specs:
-    usps_return_counties (0.1.0)
+    usps_counties (0.1.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    domain_name (0.5.20161129)
+      unf (>= 0.0.5, < 1.0.0)
+    hashdiff (0.3.1)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-    minitest (5.9.1)
-    netrc (0.7.9)
+    minitest (5.10.1)
+    netrc (0.11.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    public_suffix (2.0.4)
     rake (10.5.0)
-    rest_client (1.8.3)
-      netrc (~> 0.7.7)
+    rest-client (2.0.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    safe_yaml (1.0.4)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
+    webmock (2.3.1)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -23,8 +46,9 @@ DEPENDENCIES
   minitest (~> 5.0)
   nokogiri
   rake (~> 10.0)
-  rest_client
-  usps_return_counties!
+  rest-client
+  usps_counties!
+  webmock (~> 2.1)
 
 BUNDLED WITH
    1.11.2
