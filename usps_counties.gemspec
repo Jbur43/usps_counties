@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jbur43"]
   spec.email         = ["jtburum@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "USPS API wrapper that also returns county data and population of that county"
+  spec.description   = "Uses USPS API to return State Abbrv and City for a Zip code. Then maps the state abbreviation to a full state name. Finally takes the state name and returns a list of counties and their population"
+  spec.homepage      = "rubygems.org"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting "allowed_push_host", or
@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "webmock", "~> 2.1"
 end
