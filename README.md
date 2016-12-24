@@ -5,7 +5,7 @@ Summary: USPS API wrapper that also returns county data and population of that c
 Description: Uses USPS API to return State Abbrv and City for a Zip code. Then maps the state abbreviation to a full state name. Finally takes the state name and returns a list of counties and their population.
 
 Attributes returned for a given zip code:
-STATE ABBRV, STATE NAME, CITY, COUNTY, POPULATION
+state abbrv, state name, city, county, population
 
 ```ruby
 require 'usps_counties'
