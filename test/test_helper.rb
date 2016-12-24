@@ -1,7 +1,5 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-# require "usps_counties"
 require "nokogiri"
-
 require "minitest/autorun"
 
 def xml_fixture(path)
