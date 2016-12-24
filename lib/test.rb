@@ -12,9 +12,13 @@ require './usps_counties/city_state_county'
 
 usps_id = '167THEBO3702'
 zip = '08691'
+<<<<<<< Updated upstream
 # puts UspsCounties::CityStateCounty.new(usps_id, zip).get_info.inspect
 result = UspsCounties::CityStateCounty.new(usps_id, zip).get_info
 puts result.city
 puts result.state_abbrv
 puts result.state_name
 puts result.counties_populations
+=======
+puts UspsCounties::CityStateCounty.new(usps_id, zip).get_info.inspect
+>>>>>>> Stashed changes

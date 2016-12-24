@@ -1,8 +1,14 @@
 # Usps
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/usps_counties`. To experiment with that code, run `bin/console` for an interactive prompt.
+Summary: USPS API wrapper that also returns county data and population of that county for a given United States Zip Code.
 
-TODO: Delete this and the text above, and describe your gem
+Description: Uses USPS API to return State Abbrv and City for a Zip code. Then maps the state abbreviation to a full state name. Finally takes the state name and returns a list of counties and their population.
+
+```ruby
+require 'usps_counties'
+
+UspsCounties::CityStateCounty.new(usps_id, zip).get_info.inspect
+```
 
 ## Installation
 
