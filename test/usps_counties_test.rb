@@ -3,8 +3,7 @@ require "nokogiri"
 require "webmock/minitest"
 require "usps_counties/city_state_info"
 
-API_URL = "http://production.shippingapis.com/ShippingAPITest.dll?API=CityStateLookup&XML=<CityStateLookupRequest USERID='167THEBO3702'><ZipCode ID='0'><Zip5>08691</Zip5></ZipCode></CityStateLookupRequest>"
-INVALID_URL = "http://produion.shippingapis.com/ShippingAPITest.dll?API=CityStateLookup&XML=<CityStateLookupRequest USERID='167THEBO3702'><ZipCode ID='0'><Zip5>08691</Zip5></ZipCode></CityStateLookupRequest>"
+API_URL = "http://production.shippingapis.com/ShippingAPITest.dll?API=CityStateLookup&XML=<CityStateLookupRequest USERID='fake_id'><ZipCode ID='0'><Zip5>08691</Zip5></ZipCode></CityStateLookupRequest>"
 
 class UspsTest < Minitest::Test
   def test_it_returns_city_and_state
@@ -29,7 +28,7 @@ class UspsTest < Minitest::Test
 
   def test_it_gets_the_correct_url
     first_url_part = "http://production.shippingapis.com/ShippingAPITest.dll?API=CityStateLookup".freeze
-    second_url_part = "XML=<CityStateLookupRequest USERID='167THEBO3702'><ZipCode ID='0'><Zip5>08691</Zip5></ZipCode></CityStateLookupRequest>"
+    second_url_part = "XML=<CityStateLookupRequest USERID='fake_id'><ZipCode ID='0'><Zip5>08691</Zip5></ZipCode></CityStateLookupRequest>"
     joined_url = [first_url_part, second_url_part].join("&")
     assert_equal joined_url, API_URL
   end

@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "USPS API wrapper that also returns county data and population of that county"
   spec.description   = "Uses USPS API to return State Abbrv and City for a Zip code. Then maps the state abbreviation to a full state name. Finally takes the state name and returns a list of counties and their population"
-  spec.homepage      = "rubygems.org"
+  spec.homepage      = "https://github.com/Jbur43/usps_counties"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting "allowed_push_host", or
