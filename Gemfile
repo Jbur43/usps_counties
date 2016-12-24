@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in usps_return_counties.gemspec
+# Specify your gem's dependencies in usps_counties.gemspec
 gemspec
 
 gem 'nokogiri'
-gem 'rest_client'
+gem 'rest-client'
+gem 'webmock', '~> 2.1'
